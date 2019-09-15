@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Maven+Pro:400,700&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">   
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.9.0/jquery-ui.js"></script>
+    <title>Document</title>
+    <style>
+        .container {
+            display: none;
+        }
+        body {
+            font-family: 'Maven Pro';
+            background: url("https://drive.google.com/uc?id=1G75RShHhXijp3qulG-7uzxYgTRAOONle");
+        }
+        div{
+            text-align: center;
+        }
+        .iconss {
+            font-size:150px;
+        }
+        .imgdiv {
+            width:286px;
+        }
+        .cardi {
+            width:200px;
+            height:200px;
+        }
+        .ontab {
+            background: #cdcdcd;
+            margin:0;
+        }
+    </style>
+    <script>
+        function fun() {
+            window.location.href="{{ url_for('index') }}";
+        }
+        setTimeout(function(){
+        $(document).ready(function() {
+            $(".row").css("margin-top",$(document).height()/10+"px");
+            $(".container").css("display","block");
+            $('a').hover(function() {
+                $(this).find($('.fa')).addClass("ontab");
+                $(this).find($(".cardi")).css("border-color","#cdcdcd");
+            },
+            function() {
+                $(this).find(".fa").removeClass("ontab");
+                $(this).find($(".cardi")).css("border-color","#898989");
+            });
+        });
+        },500);
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <button onclick="fun()" style="float:right; font-size: 20px;" class="btn btn-secondary"><span class="glyphicon glyphicon-chevron-left"></span></button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3">
+                <a style="all:unset;" href="{{ url_for('quiz1') }}">
+                    <div class="cardi">
+                        <h4><span class="fa fa-code iconss"></span></h4>
+                        <h4 class="h4i">Drag and Drop</h4>
+                    </div>
+                </a>
+            </div>
+            <div class="col-sm-1">
+            </div>
+            <div class="col-sm-3">
+            </div>
+            <div class="col-sm-1">
+            </div>
+            <div class="col-sm-3">
+                <a style="all:unset;" href="{{ url_for('quiz2') }}">
+                    <div class="cardi" style="float:right; margin-top:20px;">
+                        <h4><span class="fa fa-code iconss"></span></h4>
+                        <h4 class="h4i">Fill in the Blanks</h4>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Maven+Pro:400,700&display=swap" rel="stylesheet">    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.9.0/jquery-ui.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Julius+Sans+One&display=swap" rel="stylesheet">
+    <title>Document</title>
+    <script>
+        function fun() {
+            window.location.href="{{ url_for('algoBase2') }}";
+        }
+        setTimeout(function(){
+        $(document).ready(function() {
+            $(".row").css("margin-top",$(document).height()/10+"px");
+            $(".container").css("display","block");
+            $('a').hover(function() {
+                $(this).find($('h4')).addClass("ontab");
+                $(this).find($(".cardi")).css("border-color","#cdcdcd");
+            },
+            function() {
+                $(this).find("h4").removeClass("ontab");
+                $(this).find($(".cardi")).css("border-color","#898989");
+            });
+            $('#thirdGlass').addClass("invi");
+            $('#firstGlass').removeClass("invi");//.effect("slide",1000);
+            $('#secondGlass').removeClass("invi");//.effect("slide",1000);
+            setTimeout(function(){ 
+                $('#thirdGlass').removeClass("invi");
+            }, 2500);
+            setTimeout(function() { 
+                $("#fpc").removeClass("invi").css("background-color","#ffff88");
+                $('#firstGlass').attr("src","https://drive.google.com/uc?id=1A_apL6JTINb0n-uEguYWLtkJ_ZQvvUoG");
+                $('#thirdGlass').attr("src","https://drive.google.com/uc?id=10pE8M1RSwqMlg6XTSN6BYwDG3G7Kcp2U");
+            }, 6000);
+            setTimeout(function() {
+                $('#spc').removeClass("invi").css("background-color","#ffff88");
+                $("#fpc").css("background-color","#ffffff");
+                $('#secondGlass').attr("src","https://drive.google.com/uc?id=1dT3ZdfeMhO7ZNqCAe6d1y0DRb85XXQjb");
+                $('#firstGlass').attr("src","https://drive.google.com/uc?id=1kggV7FRTr1Q74c56CGVXNjVspDuUjvqK");
+            }, 12000);
+            setTimeout(function() {
+                $('#tpc').removeClass("invi").css("background-color","#ffff88");
+                $('#spc').css("background-color","#ffffff");
+                $('#secondGlass').attr("src","https://drive.google.com/uc?id=1sKS_mFxZXbGUNKKkhfVEQfMFBd1JMYOy");
+                $('#thirdGlass').attr("src","https://drive.google.com/uc?id=1p4-Gk2dRuyxUpfLd9rapiD79gAzbVFCF");
+            }, 17500);
+            setTimeout(function() {
+                $('#pB').css("display","block");
+            },18500);
+        });
+        },500);
+    </script>
+    <style>
+        .container {
+            display: none;
+        }
+        body {
+            font-family: 'Maven Pro';
+        }
+        img {
+            width:32%;
+        }
+        #sec {
+            margin-top:0px;
+        }
+        h3 {
+            font-size:22px;
+        }
+        p {
+            font-size:20px;
+        }
+        .invi {
+            display: none;
+        }
+        h1 {
+            font-family: 'Julius Sans One';
+        }
+        </style>
+</head>
+<body>
+        <div class="container">
+                <div class="row">
+                    <div class="col-sm-8">
+                            <h1 style="font-variant: small-caps; text-align:right; font-size:50px; margin-top:0px;">the liquid problem</h1>
+                    </div>
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-3">
+                        <button onclick="fun()" style="float:right; font-size: 20px;" class="btn btn-secondary"><span class="glyphicon glyphicon-chevron-left"></span></button>
+                        <button id="pB" class="btn btn-secondary" style="text-align:left; float:right; font-size: 20px; margin-right:10px; width:200px; display:none;">Animation ended</button>                
+                    </div>
+                </div>
+                <div class="row">
+                        <div class="col-sm-6">
+                                <h2 style="text-align: center; margin-bottom:20px;">Illustration</h2>
+                                <img class="invi" id="firstGlass" src="https://drive.google.com/uc?id=1KTjDNErcRbaJO59JRMlbmqzg5A_bCS-x">
+                                <img class="invi" id="secondGlass" src="https://drive.google.com/uc?id=1qSX4fhLuAtW6VKArgAFlvpgY2GAy2ZJC">
+                                <img class="invi" id="thirdGlass" src="https://drive.google.com/uc?id=1p4-Gk2dRuyxUpfLd9rapiD79gAzbVFCF">
+                            </div>
+                            <div class="col-sm-5" style="text-align: center;">
+                                <h2>Pseudo Code</h2>
+                                <p style="margin-bottom:20px;">variable <- value</p>
+                                <p id="ii">initial: glass1 <- liquidBlue, glass2 <- liquidRed</p>
+                                <p class="" id="fpc">glass3 <- glass1 </p>
+                                <p class="" id="spc">glass1 <- glass2 </p>
+                                <p class="" id="tpc">glass2 <- glass3 </p>
+                            </div>
+                </div>
+        </div>
+</body>
+</html>

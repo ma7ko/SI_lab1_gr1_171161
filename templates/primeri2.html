@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!--<link rel="stylesheet" href="fonts/glyphicons-halflings-regular.svg" type="text/xml">-->
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+    <link href="https://fonts.googleapis.com/css?family=Maven+Pro:400,700&display=swap" rel="stylesheet">    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"
+    integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30="
+    crossorigin="anonymous"></script>
+    <title>Document</title>
+    <style>
+        body {
+            font-family: 'Maven Pro';
+        }
+        img {
+            margin:0px;
+            padding:0px;
+            width:65%;
+            height:65%;
+        }
+        .invi {
+            display: none;
+        }
+        
+        .typinana {
+            white-space: nowrap;
+            overflow: hidden;    
+            font-family: 'Maven Pro', monospace;  
+            font-size: 20px;
+            margin-top:10px;
+            }
+            .norm {
+                font-size:18px;
+                margin-left:0px;
+            }
+
+            /* Animation */
+            .typinana {
+            animation: animated-text1 3s steps(31,end) 1s 1 normal both;
+            }
+
+            /* text animation */
+
+            @keyframes animated-text1{
+            from{width: 0;}
+            to{width: 767px;}
+            }   
+
+        /*css for typing animations*/
+
+            .typin {
+            white-space: nowrap;
+            overflow: hidden;    
+            font-family: 'Maven Pro', monospace;  
+            font-size: 20px;
+            margin-top:10px;
+            }
+            .norm {
+                font-size:18px;
+                margin-left:0px;
+            }
+
+            /* Animation */
+            .typin {
+            animation: animated-text 3s steps(31,end) 1s 1 normal both;
+            }
+
+            /* text animation */
+
+            @keyframes animated-text{
+            from{width: 0;}
+            to{width: 467px;}
+            }   
+
+        /*end of */
+        .container {
+            display: none;
+        }
+        .col-sm-2 {
+            margin-top:20px;
+            margin-right:0px;
+        }
+        .ui-helper-hidden-accessible {
+    display:none;
+}
+.ui-tooltip {
+    opacity: 1;
+    background: #ccccff;
+}
+
+    
+    </style>
+    <script>
+        function fun() {
+            window.location.href="{{ url_for('algoBase1') }}";
+        }
+        $(document).ready(function(){
+            $(".container").css("margin-top",$(document).height()/10+"px");
+            $(".container").css("display","block");
+            $(function(){
+                 $(".tollseq").tooltip({
+                     position: { my: "left-35 bottom-25", at: "left" },
+                     items : "b",
+                     content: "Sequence is group of elements having a specific order"
+                 });
+             });
+             $(function(){
+                 $(".tollsel").tooltip({
+                     position: { my: "left-35 bottom-25", at: "left" },
+                     items : "b",
+                     content: "Asking if a condition is satisfied"
+                 });
+             });
+             $(function(){
+                 $(".tollite").tooltip({
+                     position: { my: "left-35 bottom-25", at: "left" },
+                     items : "b",
+                     content: "Loop"
+                 });
+             });
+        });
+        var random=1;
+        var prom="sth";
+        function randomNumber() {
+            return 1+Math.floor(Math.random()*(5));
+        }
+        function concl() {
+            setTimeout(function(){
+                        $('#firstAna').removeClass("invi").addClass("typinana").addClass("norm");
+                    },3800);
+                    setTimeout(function() {
+                        $('#secondAna').removeClass("invi").addClass("typinana").addClass("norm");
+                    },8000);
+                    setTimeout(function() {
+                        $('#conclusion').removeClass("invi");
+                    },13500);
+                    setTimeout(function() {
+                        $('#pB').css("display","block");
+                    },14600);
+        }
+        setTimeout(function() {
+        $(document).ready(function() {
+            setTimeout(function() {
+                $("#mix").effect("highlight",1000);
+                $('#1').effect("drop",1000);
+                $('#2').effect("drop",1000);
+                $('#3').effect("drop",1000);
+                $('#4').effect("drop",1000);
+            },2000);
+            setTimeout(function(){
+                $("#find").effect("highlight",1000);
+                $('img.invi').removeClass('invi').effect("slide",1000);
+                },4200);
+            setTimeout(function() {
+                random=randomNumber();
+                $('#2').attr("src", $('#'+random).attr("src"));
+                $('#'+random).attr("src", "https://drive.google.com/uc?id=1AFXvkC6Ib1cvwC0tB1MecTmYMQnacwkF");
+            },5000);
+            setTimeout(function() {
+                $("#firstStep").removeClass("invi").addClass("typin");
+                $("#1").effect("slide",500);
+                $("#first").addClass("invi");
+                if($("#1").attr("src")=="https://drive.google.com/uc?id=1AFXvkC6Ib1cvwC0tB1MecTmYMQnacwkF") {
+                    concl();
+                }
+                else {
+                    setTimeout(function() {
+                        $("#secondStep").removeClass("invi").addClass("typin");
+                        $("#2").effect("slide",500);
+                        $("#second").addClass("invi");
+                        if($("#2").attr("src")=="https://drive.google.com/uc?id=1AFXvkC6Ib1cvwC0tB1MecTmYMQnacwkF") {
+                            concl();
+                        }
+                        else {
+                            setTimeout(function() { $("#thirdStep").removeClass("invi").addClass("typin");
+                            $("#3").effect("slide",500);
+                            $("#third").addClass("invi");
+                            if($("#3").attr("src")=="https://drive.google.com/uc?id=1AFXvkC6Ib1cvwC0tB1MecTmYMQnacwkF") {
+                                concl();
+                            }
+                            else {
+                                setTimeout(function() { $("#fourthStep").removeClass("invi").addClass("typin");
+                                $("#4").effect("slide",500);
+                                $("#fourth").addClass("invi");
+                                if($("#4").attr("src")=="https://drive.google.com/uc?id=1AFXvkC6Ib1cvwC0tB1MecTmYMQnacwkF") {
+                                    concl();
+                                }
+                                },6000);
+                            }
+                            },6000);
+                        }
+                    },6000);
+                        }
+            },6200);
+        });
+        },1500);
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4">
+                <h2 style="margin-top:0px;">Task 2:</h2>
+                <h4>You are given a <b class="tollseq">sequence</b> of 4 cards</h4>
+                <h4 id="mix">Let's mix the cards</h4>
+                <h4 id="find">Find the card with number 2</h4>
+            </div>
+            <div class="col-sm-5"></div>
+            <div class="col-sm-3">
+                    <button onclick="fun()" style="float:right; font-size: 20px;" class="btn btn-secondary"><span class="glyphicon glyphicon-chevron-left"></span></button>
+                    <button id="pB" class="btn btn-secondary" style="text-align:left; float:right; font-size: 20px; margin-right:10px; width:200px; display:none;">Animation ended</button>                
+            </div>
+        </div>
+        <div class="row main-part">
+            <div class="col-sm-2">
+                <img id="1" src="https://drive.google.com/uc?id=18WpcexVG1BTzeBks-69F5FSrya9noZDP">
+                <img id="first" class="invi" src="https://drive.google.com/uc?id=1RzksiUhPZETXUMgzDOmcaozB5KSZiWIT">
+            </div>
+            <div class="col-sm-2">
+                    <img id="2" src="https://drive.google.com/uc?id=1AFXvkC6Ib1cvwC0tB1MecTmYMQnacwkF">
+                    <img id="second" class="invi" src="https://drive.google.com/uc?id=1RzksiUhPZETXUMgzDOmcaozB5KSZiWIT">
+            </div>
+            <div class="col-sm-2">
+                    <img id="3" src="https://drive.google.com/uc?id=18CBfL16xvwEXf7ghPvDD1YO346vhQbPy">
+                    <img id="third" class="invi" src="https://drive.google.com/uc?id=1RzksiUhPZETXUMgzDOmcaozB5KSZiWIT">
+            </div>
+            <div class="col-sm-2">
+                    <img id="4" src="https://drive.google.com/uc?id=1FVns8AGYUSoSi6xEvDXg062A2GVKvixF">
+                    <img id="fourth" class="invi" src="https://drive.google.com/uc?id=1RzksiUhPZETXUMgzDOmcaozB5KSZiWIT">
+            </div>
+            <div class="col-sm-4" style="margin-left:0px; padding-left:0px;">
+                <p id="firstStep" class="invi">Check the first card. If it's 2, print the position</p>
+                <p id="secondStep" class="invi">Check the second card. If it's 2, print the position</p>
+                <p id="thirdStep" class="invi">Check the third card. If it's 2, print the position</p>
+                <p id="fourthStep" class="invi">Check the fourth card. If it's 2, print the position</p>
+            </div>
+        </div>
+        <div class="row" style="margin-top:20px;">
+            <div class="col-sm-8">
+                <p id="firstAna" class="invi">We are making a <b class="tollsel">selection</b> if the card has the number 2.</p>
+                <!--<p id="secondAna" class="invi">The process of going through each element of the sequence is called (one) <b class="tollite">iteration.</b></p>-->
+                <p id="secondAna" class="invi">The keywords for selection are: <b>if</b>, <b>then</b> and <b>else</b></p>
+            </div>
+            <div class="col-sm-4">
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                    <h2 style="text-align:center;" id="conclusion" class="invi">Selection is a basic structure we will use to write Algorithms</h2>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

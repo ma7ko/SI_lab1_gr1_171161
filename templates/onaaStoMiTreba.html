@@ -1,0 +1,17 @@
+{% extends 'sort.html' %}
+{% block body %}
+<div class="content">
+                <table>
+                        {% for person in persons %}
+                        <tr>
+                            <td> {{ person.name }}
+                            </td>
+                            <td> {{ person.surname }}
+                            </td>
+                            <td> {{ person.points1 }}
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </table>
+                    </div>
+{% endblock %}

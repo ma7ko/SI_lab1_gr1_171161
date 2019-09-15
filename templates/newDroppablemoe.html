@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Title</title>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link href="https://fonts.googleapis.com/css?family=Maven+Pro:400,700&display=swap" rel="stylesheet">    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.9.0/jquery-ui.js"></script>-->
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <style>
+  .dr { width: 27px; height: 17px; padding: 0.5em; float: left; margin: 10px 10px 10px 0; }
+  .dropable { width: 60px; height: 20px; padding: 0.5em; float: left; margin: 10px; }
+  .su {
+      background:turquoise;
+  }
+  .container {display:none;}
+  </style>
+  <script>
+       $(document).ready(function(){
+            $(".container").css("margin-top",$(document).height()/10+"px");
+            $(".container").css("display","block");
+       });
+      $(document).ready(function(){
+        //$( function() {
+    $( ".dr" ).draggable();
+    $( ".dropable" ).droppable({
+      drop: function( event, ui ) {
+        $( this )
+          .addClass( "su" )
+          .find( "p" )
+            .html( "Dropped!" )
+            .removeClass("dropable");
+      }
+    });
+  //} );
+      });
+  </script>
+</head>
+<body>
+ <div class="container">
+     <div class="row">
+         <div class="col-sm-3"></div>
+         <div class="col-sm-6">
+             <div style="float:left;">
+                <div id="draggable" class="ui-widget-content dr">
+                        <p>for</p>
+                      </div>
+                      <div id="draggable1" class="ui-widget-content dr">
+                              <p>if</p>
+                      </div>
+                      <div id="draggable2" class="ui-widget-content dr">
+                              <p>continue</p>
+                      </div>
+             </div>
+             <div style="float:right;">
+                      <div id="droppable" class="ui-widget-header dropable" style="border:1px black solid;">
+  
+                        </div>
+                        <h3> i <- 0 to 4</h3>
+                        <div id="dropa1" class="ui-widget-content dropable" style="border:1px black solid;"></div> <h3 id="text2" class="">cards[i] == 2 then</h3>
+				<h3 id="text3" class="">print(the card number 2 is at position i)</h3>
+				<h3 id="text4" class="">else</h3>
+				<div id="dropa2"class="ui-widget-content dropable" style="border:1px black solid;" ></div><h3 id="text5" class=""></h3>
+                    </div>
+         </div>
+         <div class="col-sm-3"></div>
+     </div>
+ </div>
+
+ 
+
+ 
+ 
+</body>
+</html>

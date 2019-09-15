@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!--<link rel="stylesheet" href="fonts/glyphicons-halflings-regular.svg" type="text/xml">-->
+    <link href="https://fonts.googleapis.com/css?family=Maven+Pro:400,700&display=swap" rel="stylesheet">    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.9.0/jquery-ui.js"></script>
+    <script>
+        function fun() {
+            window.location.href="{{ url_for('algoBase1') }}";
+        }
+        $(document).ready(function(){
+            $(".container").css("margin-top",$(document).height()/10+"px");
+            $(".container").css("display","block");
+        });
+        $('#thirdGlass').addClass("invi");
+        setTimeout(function() {
+        $(document).ready(function() {
+            $('#firstGlass').removeClass("invi").effect("slide",1000);
+            $('#secondGlass').removeClass("invi").effect("slide",1000);
+            setTimeout(function() {
+                $('h4.invitext').effect("highlight",1000);
+            },2500);
+            setTimeout(function(){ 
+                $('#thirdGlass').removeClass("invi");
+                $('#zerothStep').removeClass("invi").addClass("typin");
+            }, 5000);
+            setTimeout(function() { 
+                $("#firstStep").removeClass("invi").addClass("typin");
+                $('#firstGlass').attr("src","https://drive.google.com/uc?id=1A_apL6JTINb0n-uEguYWLtkJ_ZQvvUoG");
+                $('#thirdGlass').attr("src","https://drive.google.com/uc?id=10pE8M1RSwqMlg6XTSN6BYwDG3G7Kcp2U");
+            }, 9500);
+            setTimeout(function() {
+                $('#secondStep').removeClass("invi").addClass("typin");
+                $('#secondGlass').attr("src","https://drive.google.com/uc?id=1dT3ZdfeMhO7ZNqCAe6d1y0DRb85XXQjb");
+                $('#firstGlass').attr("src","https://drive.google.com/uc?id=1kggV7FRTr1Q74c56CGVXNjVspDuUjvqK");
+            }, 15000);
+            setTimeout(function() {
+                $('#thirdStep').removeClass("invi").addClass("typin");
+                $('#secondGlass').attr("src","https://drive.google.com/uc?id=1sKS_mFxZXbGUNKKkhfVEQfMFBd1JMYOy");
+                $('#thirdGlass').attr("src","https://drive.google.com/uc?id=1p4-Gk2dRuyxUpfLd9rapiD79gAzbVFCF");
+            }, 20500);
+            setTimeout(function() {
+                $('#conclusion').removeClass("invi");
+                $('span').removeClass('invi');
+            }, 26000);
+            setTimeout(function(){
+            $("#pB").css("display","block");
+            },27000);
+        });
+        },1300);
+    </script>
+    <style>
+        #pB {
+            display:none;
+        }
+        button:hover {
+            background-color:#b1e0ff;
+        }
+        .container {
+            display:none;
+        }
+        body {
+            font-family: 'Maven Pro';
+        }
+        .invi {
+            display: none;
+        }
+        img {
+            width:100%;
+            height:100%;
+            margin:10px;
+        }
+        .main-part {
+            margin-top:10px;
+        }
+
+        /*css for typing animations*/
+
+        .typin {
+        white-space: nowrap;
+        overflow: hidden;    
+        font-family: 'Maven Pro', monospace;  
+        font-size: 24px;
+        margin:20px;
+        }
+
+        /* Animation */
+        .typin {
+        animation: animated-text 2s steps(30,end) 1s 1 normal both;
+        }
+
+        /* text animation */
+
+        @keyframes animated-text{
+        from{width: 0;}
+        to{width: 472px;}
+        }   
+
+        /*end of */
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+            <div class="row">
+                <div class="col-sm-4">
+                    <h2 style="margin-top:0px;">Task 1:</h2>
+                    <h4>Switch the liquids from the two glasses</h4>
+                    <h4 class="invitext">You can use an extra glass!</h4>
+                </div>
+                <div class="col-sm-3">
+                     
+                </div>
+                <div class="col-sm-5">                  
+                        <button onclick="fun()" style="float:right; font-size: 20px;" class="btn btn-secondary"><span class="glyphicon glyphicon-chevron-left"></span></button>  
+                        <button id="pB" class="btn btn-secondary" style="text-align:left; float:right; font-size: 20px; margin-right:10px; width:200px;">Animation ended</button>                
+                                      </div>
+                                    
+            </div>
+            <div class="row main-part">
+                <div class="col-sm-2">
+                    <img class="invi" id="firstGlass" src="https://drive.google.com/uc?id=1KTjDNErcRbaJO59JRMlbmqzg5A_bCS-x">
+                </div>
+                <div class="col-sm-2">
+                    <img class="invi" id="secondGlass" src="https://drive.google.com/uc?id=1qSX4fhLuAtW6VKArgAFlvpgY2GAy2ZJC">
+                </div>
+                <div class="col-sm-2">
+                    <img class="invi" id="thirdGlass" src="https://drive.google.com/uc?id=1p4-Gk2dRuyxUpfLd9rapiD79gAzbVFCF">
+                </div>
+                <div class="col-sm-6">
+                    <p id="zerothStep" class="invi"><span class="invi"><b>1.</b></span> Take a new Glass (Glass 3)</p>
+                    <p id="firstStep" class="invi"><span class="invi"><b>2.</b></span> Put the liquid from Glass 1 to Glass 3</p>
+                    <p id="secondStep" class="invi"><span class="invi"><b>3.</b></span> Put the liquid from Glass 2 to Glass 1</p>
+                    <p id="thirdStep" class="invi"><span class="invi"><b>4.</b></span> Put the liquid from Glass 3 to Glass 2</p>
+                </div>
+            </div>
+            <div class="row" style="margin-top:10px;">
+                <div class="col-sm-12">
+                    <h2 id="conclusion" class="invi" style="text-align: center;">This Sequence of Steps in which we get to a solution for a given task is called an <b>Algorithm</b></h2>
+                </div>
+            </div>
+        </div>
+</body>
+</html>

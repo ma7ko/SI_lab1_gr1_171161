@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Maven+Pro:400,700&display=swap" rel="stylesheet">    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.10.4/themes/start/jquery-ui.css" />
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.11.2/jquery-ui.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Julius+Sans+One&display=swap" rel="stylesheet">
+    <title>Document</title>
+    <style>
+        h1 {
+            font-family:'Julius Sans One';
+            border-bottom:2px #636363 solid;
+            padding-bottom:10px;
+        }
+        #list1, #list2, #listp{
+            list-style-type: none;
+            text-align: left;
+            padding:20px;
+        }
+        .container {
+            display: none;
+        }
+        body {
+            font-family: 'Maven Pro';
+        }
+        div{
+            text-align: center;
+        }
+        .iconss {
+            font-size:150px;
+        }
+        .imgdiv {
+            width:286px;
+        }
+        .cardi {
+            width:200px;
+            height:200px;
+        }
+        .ontab {
+            background: #9fff78;
+            margin:0;
+            padding-top:10px;
+            padding-bottom:10px; 
+            border-bottom-left-radius:13px; 
+            border-bottom-right-radius: 13px;
+        }
+        .hideme
+        {
+            display:none;
+            visibility:hidden;
+        }
+        table{
+        overflow-y:scroll;
+        height:260px;
+        display:block;
+        }
+        li {
+            font-size:20px;
+        }
+        #list2 > li:nth-of-type(3) {
+            padding-left:20px;
+        }
+        #list2 > li:nth-of-type(4) {
+            padding-left:40px;
+        }
+        #list2 > li:nth-of-type(5) {
+            padding-left:20px;
+        }
+        #list2 > li:nth-of-type(6) {
+            padding-left:40px;
+        }
+
+        #listp > li:nth-of-type(3) {
+            padding-left:20px;
+        }
+        #listp > li:nth-of-type(4) {
+            padding-left:40px;
+        }
+        #listp > li:nth-of-type(5) {
+            padding-left:20px;
+        }
+        #listp > li:nth-of-type(6) {
+            padding-left:40px;
+        }
+
+    </style>
+    <script>
+        function fun() {
+            window.location.href="{{ url_for('algoBase4') }}";
+        }
+        var points=0;
+        setTimeout(function(){
+        $(document).ready(function() {
+            $("#b1").click(function() {
+                $("#dial2").dialog("open");
+        });
+            var impr = document.cookie.split(" ");
+            $(".row").css("margin-top",$(document).height()/10+"px");
+            $(".container").css("display","block");
+            $("#list1").sortable({
+                connectWith: "#list2"
+            }).disableSelection();
+            $("#list2").sortable({
+                receive: function(event, ui) {
+                    $("#not").remove();
+                }
+            }).disableSelection();
+            $("#b").click(function(){
+                if($("#list2 > li:nth-of-type(1)").attr("id") == "not" || $("#list2").children().length < 6){
+                    $("#dialog p").css("display","none");
+                    $("#dialog input").css("display","none");
+                    $("#dialog > h4").css("display","block");
+                    $("#dialog").dialog("open");
+                }
+                else if($("#points").html()!=" ") {
+
+                }
+                else {
+                    for(var i=1;i<=6;i++) {
+                        if($("#list2 > li:nth-of-type("+i+")").attr("id") != i) {
+                            $("#list2 > li:nth-of-type("+i+")").css("background","#ff7272");
+                        }
+                        else {
+                            $("#list2 > li:nth-of-type("+i+")").css("background","#9fff78");
+                            points = points + 10;
+                        }
+                    }
+                    $("#dialog > h4").css("display","none");
+                    $("#dialog p").css("display","block");
+                    $("#dialog input").css("display","block");
+                    $("#points").html(points);
+                    $("#poi").val(points);
+                    $("#name").val(impr[0]);
+                    $("#surname").val(impr[1]);
+                    $("#dialog").dialog("open");
+                    if(points<60){
+                    $("#nas").html("Correct Solution");
+                    $("#list1").css("display","none");
+                    $("#listp").css("display","block");
+                    }
+                    $("#list2").sortable("disable");
+                }
+            });
+            $("#dialog").dialog({
+                autoOpen:false,
+            });
+            $("#dial2").dialog({
+                autoOpen:false,
+                buttons: [ 
+                    {
+                    text: "Ok",
+                    click: function() {
+                        $(this).dialog("close");
+                    }
+                }
+                ]
+            });
+        });
+        },500);
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-11">
+                <h1>drag and drop</h1>
+            </div>
+            <div class="col-sm-1">
+                <button onclick="fun()" style="float:right; font-size: 20px;" class="btn btn-secondary"><span class="glyphicon glyphicon-chevron-left"></span></button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-5"> <div id="mix">
+                    <div style="font-size:30px;" id="nas">Mixed Code</div>
+                    <ul id="list1">
+                        <li id="5">else</li>
+                        <li id="4">print("the card number 2 is at position i</li>
+                        <li id="1">initial:cards[5]</li>
+                        <li id="3">if cards[i] == 2 then</li>
+                        <li id="6">continue</li>
+                        <li id="2">for i<-0 to 4</li>
+                    </ul>
+                    <ul id="listp" style="display:none;">
+                        <li>initial:cards[5]</li>
+                        <li>for i<-0 to 4</li>
+                        <li>if cards[i] == 2 then</li>
+                        <li>print("the card number 2 is at position i")</li>
+                        <li>else</li>
+                        <li>continue</li>
+                    </ul>
+                </div></div>
+            <div class="col-sm-5">
+                    <div id="ans">
+                            <div style="font-size:30px;">Your Answer</div>
+                            <ul id="list2">
+                                    <li id="not">Put the Instructions here!</li>
+                            </ul>
+                        </div>
+                        </div>
+            </div>
+            <div class="col-sm-1"></div>
+            <div class="row">
+                    <div class="col-sm-11">
+                            <button id="b1" class="btn btn-primary" style="text-align:center; font-size:20px;">All Results</button>
+                        <button id="b" class="btn btn-primary" style="text-align:center; font-size:20px;">Submit</button>
+                    </div>
+                </div>
+                <div id="dialog" title="Information">
+                    <h4 style="display:none;">Please complete your answer!</h4>
+                    <form action="/templates12/" method="POST">
+                        <p>You got <span id="points"> </span> out of 60</p>
+                        <input class="hideme" type="text" name="name" id="name">
+                        <input class="hideme" type="text" name="surname" id="surname">
+                        <input class="hideme" name="poi" type="text" id="poi">
+                        <input id="kop" style="float:right;" type="submit" value="Ok">
+                    </form>
+                </div>
+                <div id="dial2" title="Results">
+                        <table>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Surname</th>
+                                    <th>Points</th>
+                                </tr>
+                                {% for person in persons %}
+                                    <tr>
+                                        <td class="imeee"> {{ person.name }}
+                                        </td>
+                                        <td id="prezimeee"> {{ person.surname }}
+                                        </td>
+                                        <td id="bodoviii"> {{ person.points1 }}
+                                        </td>
+                                    </tr>
+                                    {% endfor %}
+                                </table>
+                </div>
+        </div>
+</body>
+</html>

@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>drop</title>
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <style>
+  #golemina {
+            margin-top:50px;
+            margin-left:100px;
+			font-size: 30px;
+			}
+        #text1{
+		   margin-top:25px;
+           margin-left:100px;
+			font-size: 30px;
+		}
+		#text2{
+		   margin-top:60px;
+           margin-left:140px;
+			font-size: 30px;
+		}
+		#text3{
+		   margin-top:25px;
+           margin-left:190px;
+			font-size: 30px;
+		}
+		#text4{
+		   margin-top:60px;
+           margin-left:140px;
+			font-size: 30px;
+		}
+		#text5{
+		   margin-top:25px;
+           margin-left:190px;
+			font-size: 30px;
+		}
+		.box{
+		   margin-top:30px;
+           margin-left:20px;
+		   font-size: 30px;
+		}
+		.invi {
+            display: none;
+        }
+		
+		.typin {
+        white-space: nowrap;
+        overflow: hidden;    
+        font-family: 'Maven Pro', monospace;  
+        font-size: 26px;
+        margin:0px;
+        }
+
+        /* Animation */
+        .typin {
+        animation: animated-text 2s steps(30,end) 1s 1 normal both;
+        }
+
+        /* text animation */
+
+        @keyframes animated-text{
+        from{width: 0; }
+        to{width: 600px;}
+		
+        }   
+        .tocno {
+            background:chartreuse;
+        }
+  .draggable { 
+  margin-top:25px;
+   margin-left:100px;
+   font-size: 30px; }
+  .droppable { 
+   border-radius: 5px;
+			 border-style: ridge;
+             border-width: thick;
+			 border-color: black;
+			 width:130px;
+			 height:35px;
+			 float:left;
+			 margin-right:5px;
+  }
+  </style>
+  <script>
+  $(document).ready( function() {
+		$('#drag1').draggable();
+		$('#1Pole').droppable({
+			 drop: function(event, ui) {
+                $(this).addClass("ui-state-highlight");
+            }	
+		});
+    });
+  
+  </script>
+</head>
+<body>
+ <div class="container">
+     <div class="row" style="margin-top:80px">
+                <div class="col-sm-6">
+                    <h1 style="margin-top:0px; font-family: 'Maven Pro', monospace; ">Quiz:</h2>
+					
+					<h3 id="textWords" class="typin">Put the words in the correct spot by drag and drop:</h3>
+					<div id="drag1" class="draggable">continue</div>
+					<div id="drag2" class="draggable">for</div>
+					<div id="drag3" class="draggable">if</div>
+                </div>
+                <div class="col-sm-6">
+			
+				<h3 id="golemina" class="">initial: cards[5]</h3>
+				<div id="1Pole"class="droppable ui-widget-content"></div> <h3 id="text1" class=""> i <- 0 to 4</h3>
+				<div id="2Pole"class="droppable ui-widget-content"></div> <h3 id="text2" class="">cards[i] == 2 then</h3>
+				<h3 id="text3" class="">print(the card number 2 is at position i)</h3>
+				<h3 id="text4" class="">else</h3>
+				<h3 id="text5" class=""><div id="3Pole"class="droppable ui-widget-content"></div></h3>
+				
+				</div>
+               
+      </div>    
+       <div class="row" style="margin-top:10px">
+                <div class="col-sm-6">
+                  
+                </div>
+                <div class="col-sm-6">
+				
+				</div>
+               
+      </div>     	  
+	
+
+ 
+</body>
+</html>

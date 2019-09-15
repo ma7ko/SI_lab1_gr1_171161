@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!--<link rel="stylesheet" href="fonts/glyphicons-halflings-regular.svg" type="text/xml">-->
+    <link href="https://fonts.googleapis.com/css?family=Maven+Pro:400,700&display=swap" rel="stylesheet">    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.9.0/jquery-ui.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+   
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> 
+    <script>
+        var i=0;
+        $( function() {
+       $( "#datepicker" ).datepicker({
+       changeYear: true,
+       changeMonth: true,
+       yearRange: "1930:2018"
+       });
+     } );
+     </script>
+         <style>
+           span.psw {
+       display: block;
+       float: none;
+     }
+     .cancelbtn {
+       width: 100%;
+     }
+     button:hover {
+     opacity: 0.8;
+   }
+   
+   /* Extra style for the cancel button (red) */
+   .cancelbtn {
+     width: auto;
+     padding: 10px 18px;
+     background-color: d;
+   }
+   
+   
+   /* Add padding to containers */
+   .container {
+     padding: 16px;
+   }
+   button {
+     background-color: #787d78;
+     color: white;
+     padding: 14px 20px;
+     margin: 8px 0;
+     border: none;
+     cursor: pointer;
+     width: 100%;
+   }
+   input[type=text], input[type=password] {
+     width: 100%;
+     padding: 12px 20px;
+     margin: 8px 0;
+     display: inline-block;
+     border: 1px solid #ccc;
+     box-sizing: border-box;
+   }
+   form {
+          border: 3px solid #f1f1f1;
+       }
+       </style>
+    <script>
+        var najaveni;
+        $(document).ready(function(){
+            $(".container").css("margin-top",$(document).height()/10+"px");
+            $(".container").css("display","block");
+        });
+        $(document).ready(function() {
+            $("#l").click(function() {
+                $("#5L").find('h2').css("color","#ffffff").parent().parent().parent().css("border-color","#556cec");
+                $("#5L").unbind('mouseenter').unbind('mouseleave');
+            });
+            $("#sL").parent().parent().parent().click(function() {
+                $("#output").html("");
+                $("#na").html("Log in");
+                $("#sL").css("display","none");
+                $('#5L').hover(function() {
+                $(this).find('h2').css("color","#ffffff").parent().parent().parent().css("border-color","#cdcdcd");
+            },function(){
+                $(this).find('h2').css("color","#ffffff").parent().parent().parent().css("border-color","#556cec");
+            });
+                document.cookie="";
+            });
+            $('#fL').hover(function() {
+                $(this).find('h2').addClass("invi").parent().parent().parent().css("background-color","#ffffff").css("border-color","#ffffff").css("padding-top","30px");
+                $("#pic01").removeClass("invi");
+            },function(){
+                $(this).find('h2').removeClass("invi").parent().parent().parent().css("background-color","#bbbbbb").css("border-color","#bbbbbb").css("padding-top","50px");
+                $("#pic01").addClass("invi");
+            });
+            $('#tL').hover(function() {
+                $(this).find('h2').addClass("invi").parent().parent().parent().css("background-color","#ffffff").css("border-color","#ffffff").css("padding-top","20px");
+                $("#pic03").removeClass("invi");
+            },function(){
+                $(this).find('h2').removeClass("invi").parent().parent().parent().css("background-color","#bbbbbb").css("border-color","#bbbbbb").css("padding-top","50px");
+                $("#pic03").addClass("invi");
+            });
+            $('#secL').hover(function() {
+                $(this).find('h2').addClass("invi").parent().parent().parent().css("background-color","#ffffff").css("border-color","#ffffff").css("padding-top","45px");
+                $("#pic02").removeClass("invi");
+            },function(){
+                $(this).find('h2').removeClass("invi").parent().parent().parent().css("background-color","#bbbbbb").css("border-color","#bbbbbb").css("padding-top","50px");
+                $("#pic02").addClass("invi");
+            });
+            $('#5L').hover(function() {
+                $(this).find('h2').css("color","#ffffff").parent().parent().parent().css("border-color","#cdcdcd");
+            },function(){
+                $(this).find('h2').css("color","#ffffff").parent().parent().parent().css("border-color","#556cec");
+            });
+            $('#qL').hover(function() {
+                $(this).find('h2').addClass("invi").parent().parent().parent().css("background-color","#ffffff").css("border-color","#ffffff").css("padding-top","35px");
+                $("#pic04").removeClass("invi");
+            },function(){
+                $(this).find('h2').removeClass("invi").parent().parent().parent().css("background-color","#bbbbbb").css("border-color","#bbbbbb").css("padding-top","50px");
+                $("#pic04").addClass("invi");
+            });
+            $('#sL').hover(function() {
+                $(this).find('span').removeClass("glyphicon-off").css("font-family","'Maven Pro'").html("Log off").parent().parent().parent().css("border-color","#cdcdcd");
+            },function(){
+                $(this).find('span').html("").css("font-family","'Glyphicons Halflings'").addClass("glyphicon-off").parent().parent().parent().css("border-color","#cc5555");
+            });
+            $(".cardi").click(function(){
+                if($(this).attr("id") == "qL") {
+                    if(document.cookie!=""){
+                        najaveni=true;
+                        window.location = $(this).find("a:first").attr("href");
+                    }
+                    else {
+                        alert("Ве молиме најавете се за да добиете пристап до избраниот линк.")
+                    }
+                }
+                else {
+                    window.location = $(this).find("a:first").attr("href");
+                }
+                return false;
+            });
+            var v = document.cookie.split(" ");
+            najaveni = v[2];
+            if(najaveni=="true"){
+                $("#na").html(v[0]);
+                $("#sL").css("display","block");
+                $("#5L").find('h2').css("color","#ffffff").parent().parent().parent().css("border-color","#556cec");
+                $("#5L").unbind('mouseenter').unbind('mouseleave');
+            }
+        });
+    </script>
+    <style>
+        .container {
+            display: none;
+        }
+        #pic03 {
+            width:125px;
+            height:125px;
+        }
+        #pic01 {
+            height:110px;
+            width:76px;
+        }
+        img{
+            width:276px;
+        }
+        .toa {
+            pointer-events: none;
+        }
+        .logincardi {
+            font-family: 'Maven Pro';
+            padding:10px;
+            text-align: center;
+            padding-top:50px;
+            min-height:180px;
+            margin:auto;    
+            border:4px #787878 solid;
+            margin-top: 20px;
+            border-radius: 15px;
+        }
+        .cardi {
+            font-family: 'Maven Pro';
+            padding:10px;
+            text-align: center;
+            padding-top:50px;
+            min-height:180px;
+            margin:auto;    
+            background: #cccccc;
+            border:4px #cccccc solid;
+            margin-top: 20px;
+            border-radius: 15px;
+        }
+        a {
+            color:#343434;
+        }
+        .invi {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <nav class="container">
+            <div class="row" style="margin:0px;">
+	
+                    <span style="color:white; font-size:20px;">s</span>
+                    <h3 class="pull-right" style="margin-top:0px; margin-bottom:0px;" id="output" ></h3>
+                    </div>
+        <div class="row">
+                <div class="col-sm-4">
+                        <div id="5L" onclick="document.getElementById('id01').style.display='block'" class="logincardi" style="background: #556cec; border-color:#556cec; color:white;">
+                                <a style="all:unset;">
+                                    <div>
+                                    <h2 id="na">Log In</h2>
+                                    </div>
+                                </a>
+                            </div>
+                </div>
+            <div class="col-sm-4">
+                <div class="cardi" id="fL">
+                <a style="all:unset;" href="{{ url_for('algoBase1') }}">
+                    <div>
+                        <h2>What is an Algorithm?</h2>
+                       <img style="margin:auto;" class="invi img-responsive" id="pic01" src="https://drive.google.com/uc?id=1KTjDNErcRbaJO59JRMlbmqzg5A_bCS-x">
+
+                    </div>
+                </a>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div id="secL" class="cardi">
+                    <a style="all:unset;" href="{{ url_for('algoBase2') }}">
+                        <div>
+                        <h2>Algorithms to Code</h2>
+                        <img style="margin:auto;" class="invi img-responsive" id="pic02" src="https://drive.google.com/uc?id=1fOiNQmv1Q39x6sqo2ZyiP457ZsxDjYeE">
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+        <div class="row">
+                <div class="col-sm-4">
+                        <div  id="sL" class="logincardi" style="display:none; background: #cc5555; border-color:#cc5555; color:white;">
+                        <h2><a style="all:unset;"><span class="glyphicon glyphicon-off"></span></a></h2>
+                        </div>
+                    </div>
+                <div class="col-sm-4">
+                        <div class="cardi" id="tL">
+                                <a href="{{ url_for('algoBase3') }}" style="all:unset;">
+                                    <div>
+                                    <h2>Some Algorithms</h2>
+                                    <img style="margin:auto;" class="invi img-responsive" id="pic03" src="https://drive.google.com/uc?id=1tYzXsIQjOJZPg6-G47TiyRLs-P2271Iz">
+                                    </div>
+                                </a>
+                            </div>
+                </div>
+                <div class="col-sm-4">
+                        <div class="cardi" id="qL">
+                                <a style="all:unset;" href="{{ url_for('algoBase4') }}">
+                                    <div>
+                                    <h2>Quiz</h2>
+                                    <img style="margin:auto;" class="invi img-responsive" id="pic04" src="https://drive.google.com/uc?id=1odPoLtgcbHKK2Z4QRJNfkeE6k9mylvVd">
+                                    </div>
+                                </a>
+                            </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                            
+                </div>
+                </div>
+            
+        </nav>
+
+        <!-- The Modal -->
+<div id="id01" class="modal">
+        <span onclick="document.getElementById('id01').style.display='none'" 
+      class="close" title="Close Modal">&times;</span>
+      
+        <!-- Modal Content -->
+        <form class="modal-content animate" autocomplete="off" >
+         
+      
+          <div class="container" style="width:600px">
+                <label for="uname"><b>Name</b></label>
+                <input type="text" id="name" placeholder="Enter Name" name="name">
+                <label for="psw"><b>Surname</b></label>
+                <input type="text" id="surname" placeholder="Enter Surname" name="surname">      
+                <p>Date: <input type="text" placeholder="Enter Date of Birth" id="datepicker"></p>
+                <button id="l" type="button" onclick="stajtext()" style="width:200px; margin-left:200px;">Log in</button>
+          </div>
+          <div class="container" style="background-color:#f1f1f1; width:600px;">
+      
+            <button type="button" style="background-color:red" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+           
+          </div>
+        </form>
+        <script>
+            function myFunction() {
+             document.getElementById("output").innerHTML = "Paragraph changed!";
+            }
+            function stajtext() {
+            
+            var ime = document.getElementById("name").value;
+            var prezime= document.getElementById("surname").value;
+            if (ime=="" || prezime=="")
+            {
+               alert("Zadolzitelno Ime i Prezime");
+               
+            }
+            else
+            {
+            document.cookie = ime + " " + prezime + " " + "true" ;
+             document.getElementById('id01').style.display='none';
+             document.getElementById("na").innerHTML = ime + "";
+             //document.getElementById("kopce").innerHTML = "Logout";
+             //document.getElementById('kopce').style.display='none';
+           document.getElementById('sL').style.display='block';
+             }
+            }
+        </script>
+        </div>
+</body>
+</html>

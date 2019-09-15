@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!--<link rel="stylesheet" href="fonts/glyphicons-halflings-regular.svg" type="text/xml">-->
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+    <link href="https://fonts.googleapis.com/css?family=Maven+Pro:400,700&display=swap" rel="stylesheet">    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"
+    integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30="
+    crossorigin="anonymous"></script>
+    <script>
+        function fun() {
+            window.location.href="{{ url_for('algoBase3') }}";
+        }
+        function typi(curr, next) {
+            return "Compare the "+ curr + " with the " + next + " card. If " + curr + " > " + next + " swap them.     ";
+        }
+        function everyCheck(fs,ss,pf1,pf2,pr1,pr2,li1,li2,swaps) {
+            if(li1==li2){
+                li1=$("#"+pf1).attr("src");
+                li2=$("#"+pf2).attr("src");
+            }
+            $("#"+fs).addClass("invi").removeClass("typin");
+                $("#"+ss).html(typi(pr1,pr2)).removeClass("invi").addClass("typin");
+                $("#"+pf1).effect("slide",500);
+                $("#"+pf2).effect("slide",500);
+                $("#"+pr1).addClass("invi");
+                $("#"+pr2).addClass("invi");
+                setTimeout(function() {
+                    $("#"+pf1).attr("src",li1);
+                    $("#"+pf2).attr("src",li2);
+                    if(swaps>0){
+                        $("#swaps").html(swaps);
+                    }
+                },4000);
+                setTimeout(function() {
+                    $("#"+pf1).effect("drop",500);
+                    $("#"+pf2).effect("drop",500);
+                },7000);
+                setTimeout(function() {
+                    $("#"+pr1).removeClass("invi");
+                    $("#"+pr2).removeClass("invi");
+                },7555);
+        }
+         $(document).ready(function(){
+            $(".container").css("margin-top",$(document).height()/10+"px");
+            $(".container").css("display","block");
+            $("#dial").dialog({
+                autoOpen:false,
+            });
+         });
+         setTimeout(function() {
+        $(document).ready(function() {
+            setTimeout(function(){
+                $("#find").effect("highlight",1000);
+                },3800);
+            setTimeout(function() {
+                    $("#ite").html("1");
+                    everyCheck("firstStep","firstStep","1","2","first","second","https://drive.google.com/uc?id=18WpcexVG1BTzeBks-69F5FSrya9noZDP","https://drive.google.com/uc?id=18CBfL16xvwEXf7ghPvDD1YO346vhQbPy",1);
+            },7000);
+            setTimeout(function() {
+                    everyCheck("firstStep","secondStep","2","3","second","third","https://drive.google.com/uc?id=1AFXvkC6Ib1cvwC0tB1MecTmYMQnacwkF","https://drive.google.com/uc?id=18CBfL16xvwEXf7ghPvDD1YO346vhQbPy",2);
+            },16000);
+            setTimeout(function() {
+                    everyCheck("secondStep","thirdStep","3","4","third","fourth","e","e",0);
+            },25000);
+            setTimeout(function(){
+                $("#thirdStep").addClass("invi").removeClass("typin");  
+                $("#fifthStep").append("Because we made at least one swap, we should go through the cards again").removeClass("invi").addClass("typin");
+                setTimeout(function() {
+                    $("#fourthStep").html("We know that the cards are sorted now, but the computer does not.").removeClass("invi").addClass("typin");
+                },5000);
+            },34000);
+            setTimeout(function() {
+                    $("#ite").html("2");
+                    $("#swaps").html("0");
+                    $("#fourthStep").addClass("invi").removeClass("typin");
+                    everyCheck("fifthStep","firstStep","1","2","first","second","e","e",0);
+            },45000);
+            setTimeout(function() {
+                    everyCheck("firstStep","secondStep","2","3","second","third","e","e",0);
+            },54000);
+            setTimeout(function() {
+                    everyCheck("secondStep","thirdStep","3","4","third","fourth","e","e",0);
+            },63000);
+            setTimeout(function() {
+                $("#thirdStep").addClass("invi");
+                $("#fourthStep").html("").html("Success! Notice that sorting makes it easier for us to find the card number 2").removeClass("invi").addClass("typin");
+                $("#2").effect("slide",500);
+                $("#second").addClass("invi");
+            },71000);
+            setTimeout(function(){
+                $("#dial").dialog("open");
+            },76000);
+        });
+        },1200);
+    </script>
+    <style>
+        body {
+            font-family: 'Maven Pro';
+        }
+        img {
+            margin:0px;
+            padding:0px;
+            width:65%;
+            height:65%;
+        }
+        .invi {
+            display: none;
+        }
+        /*css for typing animations*/
+
+            .typin {
+            white-space: nowrap;
+            overflow: hidden;    
+            font-family: 'Maven Pro', monospace;  
+            font-size: 26px;
+            margin-top:10px;
+            }
+            .norm {
+                font-size:18px;
+                margin-left:0px;
+            }
+
+            /* Animation */
+            .typin {
+            animation: animated-text 3s steps(31,end) 1s 1 normal both;
+            }
+
+            /* text animation */
+
+            @keyframes animated-text{
+            from{width: 0;}
+            to{width: 920px;}
+            }   
+
+        /*end of */
+        .container {
+            display: none;
+        }
+        .col-sm-2 {
+            margin-top:20px;
+            margin-right:0px;
+        }
+        .ui-helper-hidden-accessible {
+    display:none;
+}
+.ui-tooltip {
+    opacity: 1;
+    background: #ccccff;
+}   
+.inf {
+    padding: 10px;
+    border:1px #454545 solid;
+    border-radius:10px;
+    text-align:center;
+    background-color:#ffff99;
+}  
+.inf > span {
+    font-size:25px;
+    color:#dd3333;
+}
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-8">
+                <h2 style="margin-top:0px;">Bubble sort:</h2>
+                <h4>The cards are mixed, lets sort them.</h4>
+                <br>
+                <br>
+                <br>
+            </div>
+            <div class="col-sm-2"></div>
+            <div class="col-sm-2">
+                    <button onclick="fun()" style="float:right; font-size: 20px;" class="btn btn-secondary"><span class="glyphicon glyphicon-chevron-left"></span></button>
+            </div>
+        </div>
+        <div class="row main-part">
+            <div class="col-sm-2">
+
+            </div>
+                <div class="col-sm-2">
+                        <img id="1" class="invi" src="https://drive.google.com/uc?id=18CBfL16xvwEXf7ghPvDD1YO346vhQbPy">
+                        <img id="first" src="https://drive.google.com/uc?id=1RzksiUhPZETXUMgzDOmcaozB5KSZiWIT">
+                    </div>
+                    <div class="col-sm-2">
+                            <img id="2" class="invi" src="https://drive.google.com/uc?id=18WpcexVG1BTzeBks-69F5FSrya9noZDP">
+                            <img id="second" src="https://drive.google.com/uc?id=1RzksiUhPZETXUMgzDOmcaozB5KSZiWIT">
+                    </div>
+                    <div class="col-sm-2">
+                            <img id="3" class="invi" src="https://drive.google.com/uc?id=1AFXvkC6Ib1cvwC0tB1MecTmYMQnacwkF">
+                            <img id="third" src="https://drive.google.com/uc?id=1RzksiUhPZETXUMgzDOmcaozB5KSZiWIT">
+                    </div>
+                    <div class="col-sm-2">
+                            <img id="4" class="invi" src="https://drive.google.com/uc?id=1FVns8AGYUSoSi6xEvDXg062A2GVKvixF">
+                            <img id="fourth" src="https://drive.google.com/uc?id=1RzksiUhPZETXUMgzDOmcaozB5KSZiWIT">
+                    </div>
+            <div class="col-sm-2">
+                <p class="inf"><b>Iteration: </b><br><span id="ite">0</span></p>
+                <p class="inf"><b>No. of swaps:</b> <br><span id="swaps">0</span></p>
+            </div>
+        </div>
+        <div class="row" style="margin-top:20px;">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-8">
+                    <p id="firstStep" class="invi con"></p>
+                    <p id="secondStep" class="invi con"></p>
+                    <p id="thirdStep" class="invi con"></p>
+                    <p id="fifthStep" class="invi"></p>
+                    <p id="fourthStep" class="invi con"></p>
+            </div>
+            <div class="col-sm-1"></div>
+        </div>
+    </div>
+</body>
+</html>
