@@ -10,16 +10,11 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="http://code.jquery.com/ui/1.11.2/jquery-ui.min.js"></script>
     <script>
-        function fun() {
-            window.location.href="{{ url_for('algoBase1') }}";
-        }
-        $(document).ready(function(){
-            $(".container").css("margin-top",$(document).height()/10+"px");
-            $(".container").css("display","block");
-        });
-        $('#thirdGlass').addClass("invi");
         setTimeout(function() {
         $(document).ready(function() {
+            $(".container").css("margin-top",$(document).height()/10+"px");
+            $(".container").css("display","block");
+            $('#thirdGlass').addClass("invi");
             $('#firstGlass').removeClass("invi").effect("slide",1000);
             $('#secondGlass').removeClass("invi").effect("slide",1000);
             setTimeout(function() {
@@ -53,6 +48,9 @@
             },27000);
         });
         },1300);
+        function fun() {
+            window.location.href="{{ url_for('algoBase1') }}";
+        }
     </script>
     <style>
         body{
